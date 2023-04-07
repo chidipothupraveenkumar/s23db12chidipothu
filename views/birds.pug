@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  
+  div(class="container-fluid")
+  div(class="row")
+  - let results=[{bird_name:"Crow",bird_age:2,bird_color:"Black"},{bird_name:"Eagle",bird_age:3,bird_color:"Brown"},{bird_name:"Parrot",bird_age:1,bird_color:"Green"}]
+  each value,index in results
+    div(class="col-sm-2" onclick=`buy(${index})`)  #{value.bird_name} Bird, age is #{value.bird_age}, and color is #{value.bird_color}
+  script. 
+    function buy(index)
+    {
+      alert(`You purchased Item ${index+1}`)
+    }
